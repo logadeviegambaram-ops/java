@@ -1,0 +1,40 @@
+Sum of Elements Before Maximum and After Minimum
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {3, 5, 2, 8, 1, 9, 4};
+        
+        int max = arr[0];
+        int min = arr[0];
+        int maxIndex = 0;
+        int minIndex = 0;
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+                maxIndex = i;
+            }
+            if (arr[i] < min) {
+                min = arr[i];
+                minIndex = i;
+            }
+        }
+
+        int sumBeforeMax = 0;
+        for (int i = 0; i < maxIndex; i++) {
+            sumBeforeMax += arr[i];
+        }
+
+        int sumAfterMin = 0;
+        for (int i = minIndex + 1; i < arr.length; i++) {
+            sumAfterMin += arr[i];
+        }
+
+        System.out.println("Sum of elements before maximum: " + sumBeforeMax);
+        System.out.println("Sum of elements after minimum: " + sumAfterMin);
+    }
+}
+Output:
+
+For the array {3, 5, 2, 8, 1, 9, 4}, the output will be:
+Sum of elements before maximum: 19
+Sum of elements after minimum: 13
